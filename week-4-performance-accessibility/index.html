@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An accessible, performance-focused frontend internship task demonstrating semantic HTML, efficient CSS, keyboard navigation, and responsive design.">
+  <title>Accessible Performance Lab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Accessible Performance Lab home">AP<span>Lab</span></a>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="#performance">Performance</a></li>
+          <li><a href="#accessibility">Accessibility</a></li>
+          <li><a href="#testing">Testing</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Week 4 · Frontend Internship</p>
+          <h1 id="hero-title">Fast pages should be accessible to everyone.</h1>
+          <p class="hero-copy">A practical static webpage showing how semantic HTML, efficient CSS, keyboard support, meaningful alternatives, and performance-aware loading can work together.</p>
+          <a class="button" href="#performance">Explore improvements</a>
+        </div>
+        <div class="hero-card" aria-label="Optimization summary">
+          <div class="metric"><strong>01</strong><span>Semantic structure</span></div>
+          <div class="metric"><strong>02</strong><span>Keyboard-first controls</span></div>
+          <div class="metric"><strong>03</strong><span>Lean responsive CSS</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="performance" aria-labelledby="performance-title">
+      <div class="container">
+        <p class="eyebrow">Performance</p>
+        <h2 id="performance-title">Reduce unnecessary work</h2>
+        <div class="cards">
+          <article class="card"><span class="icon" aria-hidden="true">⚡</span><h3>Lean markup</h3><p>Uses a small DOM, meaningful elements, one stylesheet, and no unnecessary third-party libraries.</p></article>
+          <article class="card"><span class="icon" aria-hidden="true">▣</span><h3>Efficient CSS</h3><p>Shared component rules, simple selectors, CSS custom properties, and responsive layouts reduce duplication.</p></article>
+          <article class="card"><span class="icon" aria-hidden="true">↗</span><h3>Rendering aware</h3><p>Non-critical content is kept lightweight and the page avoids large media files that would increase transfer cost.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt" id="accessibility" aria-labelledby="accessibility-title">
+      <div class="container accessibility-grid">
+        <div>
+          <p class="eyebrow">Accessibility</p>
+          <h2 id="accessibility-title">Built for different ways of browsing</h2>
+          <p>Semantic landmarks and headings provide a clear document structure. Visible focus styles support keyboard users, while the skip link lets users bypass repeated navigation.</p>
+          <ul class="check-list">
+            <li>Descriptive links and headings</li><li>Visible keyboard focus indicators</li><li>Form controls with explicit labels</li><li>ARIA used only where it adds useful information</li>
+          </ul>
+        </div>
+        <aside class="contrast-panel" aria-label="Accessibility checklist">
+          <h3>Quick accessibility check</h3>
+          <p><strong>Keyboard:</strong> Tab through every interactive element.</p>
+          <p><strong>Screen reader:</strong> Navigate by headings and landmarks.</p>
+          <p><strong>Images:</strong> Provide useful alt text when images convey meaning.</p>
+          <p><strong>Contrast:</strong> Keep text and controls visually distinguishable.</p>
+        </aside>
+      </div>
+    </section>
+    <section class="section" id="testing" aria-labelledby="testing-title">
+      <div class="container">
+        <p class="eyebrow">Testing</p>
+        <h2 id="testing-title">Verify instead of guessing</h2>
+        <div class="testing-layout">
+          <div class="test-list">
+            <article class="test-item"><h3>Lighthouse</h3><p>Review performance, accessibility, best practices, and page-level opportunities.</p></article>
+            <article class="test-item"><h3>WAVE / axe</h3><p>Check common accessibility issues such as missing labels, structure problems, and contrast concerns.</p></article>
+            <article class="test-item"><h3>Browser DevTools</h3><p>Test different viewport widths, keyboard focus order, network requests, and rendering behavior.</p></article>
+          </div>
+          <form class="contact-card" aria-labelledby="contact-title">
+            <h3 id="contact-title">Accessibility feedback</h3>
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-help">
+            <p id="email-help" class="help">Used only for this local demonstration.</p>
+            <label for="message">Your feedback</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <button class="button" type="submit">Send feedback</button>
+            <p id="form-status" class="status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner"><p>Week 4 internship task · Performance + Accessibility</p><a href="#top">Back to top</a></div>
+  </footer>
+  <script>
+    const form = document.querySelector('.contact-card');
+    const status = document.querySelector('#form-status');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      status.textContent = 'Thank you. Your feedback was validated locally.';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
